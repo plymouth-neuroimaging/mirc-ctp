@@ -9,6 +9,8 @@
 ##  Input file should be supplied as a command line
 ##  argument to this script, in the form:
 ##  pat_0dfeb6f170_acc_edcd28452afb
+##  Example:
+##  $ ./anonymize.sh pat_0dfeb6f170_acc_edcd28452afb
 
 # The new, anonymous patient ID
 # (extracted from the input filename)
