@@ -6,11 +6,21 @@
 ##  and it will write anonymized DICOM to 'DICOM-ANON'
 ## 
 
-# The new, anonymous patient ID
-PATIENTID="MRN1234"
+##  Input file should be supplied as a command line
+##  argument to this script, in the form:
+##  pat_0dfeb6f170_acc_edcd28452afb
 
+# The new, anonymous patient ID
+# (extracted from the input filename)
+PATIENTID=$(echo $1 | awk -F'_' '{ print $2 }')
 # The new, anonymous, accession number:
-ACCESSION="ACN1234"
+ACCESSION=$(echo $1 | awk -F'_' '{ print $4 }')
+
+INPUT_DN=DICOM
+OUTPUT_DN=DICOM-ANON
+
+mkdir -p $"${INPUT_DN}"
+mkdir -p $"${OUTPUT_DN}"
 
 # Anonymize dates by subtracting or adding this value, in days:
 JITTER="-10"
@@ -38,8 +48,8 @@ shift $((OPTIND-1))
 
 docker run --rm  -e JAVA_TOOL_OPTIONS=${DEBUG} \
     -p 8000:8000 -v ${PWD}/scripts:/scripts -v ${PWD}:/data/dicom mirc-ctp java ${VERBOSE} -cp /app/DAT/* org.rsna.dicomanonymizertool.DicomAnonymizerTool -v -n 8 \
-	-in /data/dicom/DICOM \
-	-out /data/dicom/DICOM-ANON \
+	-in "/data/dicom/${INPUT_DN}" \
+	-out "/data/dicom/${OUTPUT_DN}" \
 	-dec \
 	-rec \
 	-f /scripts/stanford-filter.script \

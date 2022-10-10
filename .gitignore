@@ -59,3 +59,7 @@ local.*
 
 # Emacs backup files
 *~
+
+# Image data
+DICOM/
+DICOM-ANON/
