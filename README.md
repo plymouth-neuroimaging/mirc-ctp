@@ -26,7 +26,10 @@ Since we run this tool on MacOS, it requires docker (see below)
 
 ### Installation
 
-First ensure you have the [Oracle JDK v.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed. 
+First ensure you have the [Oracle JDK v.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed. For open-source JAVA, you can install [open JDK 8](https://openjdk.org/projects/jdk8/). In Linux, it can be installed with 
+```
+sudo apt install openjdk-8-jdk-headless
+```  
 
 Create a clone of this repository on your workstation:
 ```
@@ -38,6 +41,11 @@ If you do not have the `ant` program installed, install it with [HomeBrew](https
 ```
 $ brew install ant
 ```
+In Linux, you can install the `ant` program with 
+```
+sudo apt install ant
+``` 
+The benefit of using apt is to avoid introducing another version of JDK from the installation of HomeBrew, so that `ant` won't using the wrong version of java later.
 
 Compile the included DicomAnonymizerTool by typing `ant` at the command prompt:
 
@@ -54,6 +62,8 @@ init:
 ...
 
 ```
+If you have multiple versions of JDK installed in you system, `ant` may not use the JDK 8 for building your application, which could cause an error later (java.lang.UnsupportedClassVersionError). You can specify the path of JDK 8 by adding `JAVACMD=<NEW_JAVA_HOME>/bin/java` to 
+the file `~/.antrc`.
 
 You should now have a directory called `DAT` which contains the `DicomAnonymizerTool`. You can try running it: 
 
