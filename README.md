@@ -26,7 +26,7 @@ Since we run this tool on MacOS, it requires docker (see below)
 
 ### Installation
 
-First ensure you have the [Oracle JDK v.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed. For open-source JAVA, you can install [open JDK 8](https://openjdk.org/projects/jdk8/). In Linux, it can be installed with 
+First ensure you have the [Oracle JDK v.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed. Alternatively, you can install [Open JDK 8](https://openjdk.org/projects/jdk8/), for Open-source Java. In Linux, it can be installed with 
 ```
 sudo apt install openjdk-8-jdk-headless
 ```  
@@ -45,7 +45,7 @@ In Linux, you can install the `ant` program with
 ```
 sudo apt install ant
 ``` 
-The benefit of using apt is to avoid introducing another version of JDK from the installation of HomeBrew, so that `ant` won't using the wrong version of java later.
+The benefit of this approach is to avoid introducing another version of JDK from the dependencies HomeBrew installs for `ant`, so that `ant` won't using the wrong version of java later.
 
 Compile the included DicomAnonymizerTool by typing `ant` at the command prompt:
 
