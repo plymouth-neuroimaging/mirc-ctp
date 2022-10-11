@@ -62,7 +62,7 @@ init:
 ...
 
 ```
-If you have multiple versions of JDK installed in you system, `ant` may not use the JDK 8 for building your application, which could cause an error later (java.lang.UnsupportedClassVersionError). You can specify the path of JDK 8 by adding `JAVACMD=<NEW_JAVA_HOME>/bin/java` to 
+If you have multiple versions of JDK installed in you system, `ant` may not use the JDK 8 for building your application, which could cause an error later (java.lang.UnsupportedClassVersionError). You can specify the path of JDK 8 for `ant` by adding `JAVACMD=<NEW_JAVA_HOME>/bin/java` to 
 the file `~/.antrc`.
 
 You should now have a directory called `DAT` which contains the `DicomAnonymizerTool`. You can try running it: 
